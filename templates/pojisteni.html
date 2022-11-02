@@ -1,0 +1,45 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='pojisteni.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    
+    <title>Evidence uživatelů</title>
+
+</head>
+
+<body>
+    <div class="center">
+        <h1 class="title">Evidence uživatelů</h1>
+        <h2 class="title_2">project by mtruhlar.cz</h2>
+
+        <form class="form" action="/add" method="post">
+
+                <label class="form-details">Jméno a příjmení:</label>
+                <input type="text" name="name" placeholder="Zadejte jméno a příjmení" required="1">
+                <label class="form-details">E-mail:</label>
+                <input type="email" name="email" placeholder="Zadejte e-mail" required="1">
+                <label class="form-details">Phone:</label>
+                <input type="number" name="phone" placeholder="Zadejte číslo" required="1">
+                <button class="button" type="submit">Přidat</button>
+        </form>
+
+        {% for Insurance_list in users %}
+        <div class="section-users">
+            <ul class="user-details"> 
+                <li>{{ Insurance_list.id }}</li>
+                <li class="users-name">{{ Insurance_list.name }} </li>
+                <li class="users-email">{{ Insurance_list.email }}</li>
+                <li class="users-phone">{{ Insurance_list.phone }}</li>     
+            </ul>
+            
+            <a class="user-button-edit" href="">Upravit</a>
+            <a class="user-button-del" href="/delete/{{ Insurance_list.id }}">Smazat</a>
+            <a class="user-button-active" href="">Aktivní</a>
+
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
