@@ -27,7 +27,7 @@ class Insurance_list(db.Model):
 def evidence():
     all_data = Insurance_list.query.all()
 
-    return render_template("pojisteni.html", users = all_data)
+    return render_template("index.html", users = all_data)
 
 @app.route('/add', methods = ['POST'])
 def insert():
