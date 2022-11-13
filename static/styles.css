@@ -2,6 +2,11 @@
     padding: 0;
     margin: 0;
 }
+
+a {
+    text-decoration: none;
+    color: white;
+}
 body {
     text-align: center;
     margin: 0 auto;
@@ -24,7 +29,6 @@ body {
 
 .form {
     border-top: 3px solid #ff4a57;
-    border-bottom: 3px solid #ff4a57;
 }
 
 .form-details {
@@ -38,20 +42,43 @@ input[type="text"], input[type="email"], input[type="number"] {
     padding: 0.5em;
 }
 
+input[type="number"] {
+    margin-bottom: 3em;
+}
+
 .button {
-    margin: 1em 0;
+    margin: 1em 0.5em;
     text-transform: uppercase;
     padding: 1em 2em;
-    font-weight: bold;
     background-color: #ff4a57;
     border: none;
     border-radius: 0.5em;
-
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
 }
 
-.button:hover, .user-button-del:hover, .user-button-edit:hover, .user-button-active:hover {
-    color:#ff4a57;
+.edit {
+    background-color:#1f2235;
+}
+
+.close {
+    background-color: #323c67;
+}
+
+.button:hover  {
+    color: #ff4a57;
     background-color: white;
+    transition: all 0.5s;
+}
+
+.titles {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 1em;
+    background-color:rgb(81, 73, 73);
+    font-weight: bold;
 }
 
 .section-users {
@@ -59,6 +86,7 @@ input[type="text"], input[type="email"], input[type="number"] {
     padding: 1em;
     display: flex;
     align-items: center;
+    text-align: left;
     border-bottom: 1px dashed white;
 }
 
@@ -66,32 +94,46 @@ input[type="text"], input[type="email"], input[type="number"] {
     background-color:  #43496f;;
 }
 
-
 .user-details {
     display: flex;
     list-style-type: none;
     width: 60%;
 }
 
-.user-button-del, .user-button-edit, .user-button-active {
+.users-id {
+    width: 10%;
+}
+.users-name {
+    width: 30%;
+}
+
+.users-email, .users-phone {
+    width: 30%;
+}
+
+.popup {
+    border: 3px solid #ff4a57;
     color: white;
-    text-decoration: none;
-    text-transform: uppercase;
-    background-color: #ff4a57;
-    padding: 0.5em 1em;
-    border-radius: 0.5em;
-    margin-right: 1em;
+    padding: 1em 0;
+    width: 400px;
+    background:  #1f2235;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    visibility: hidden;
+    transition: transform 0.5s, top 0.5s;
 }
 
-.user-button-edit {
-    background-color: #1f2235;
+.popup-open {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
 }
 
-.user-button-active {
-    background-color: greenyellow;
-    color: black;
-}
-
-.users-name, .users-email, .users-phone {
-    width: 40%;
+.question {
+    font-weight: bold;
+    padding: 0 2em 1em 2em;
 }
